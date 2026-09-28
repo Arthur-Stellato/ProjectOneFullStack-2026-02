@@ -1,25 +1,32 @@
-// src/components/TabelaVeiculos.jsx
+// src/components/TabelaAvioes.jsx
+// Conteúdo estático de exemplo, no formato que a API AviationStack retorna
+// para voos comerciais (número do voo, companhia, status).
+//
+// TODO (Pessoa 1): substituir esse array fixo pelo resultado real de
+// getFlights() em services/api.js.
 function TabelaAvioes() {
-  const avioes = [
-    { modelo: 'F14', funcao: 'Figher'},
-    { modelo: 'MIG-25', funcao: 'Intercepter'},
-    { modelo: 'F114', funcao: 'Stealth'},
-    { modelo: 'BF109', funcao: 'Intercepter'}
+  const voos = [
+    { numero: 'LA3456', companhia: 'LATAM', status: 'Ativo' },
+    { numero: 'G31234', companhia: 'GOL', status: 'Agendado' },
+    { numero: 'AD4321', companhia: 'Azul', status: 'Pousado' },
+    { numero: 'TP54', companhia: 'TAP Portugal', status: 'Cancelado' },
   ];
 
   return <>
-    <table className="tabela-avioes">
+    <table className="tabela-voos">
       <thead>
         <tr>
-          <th>Modelo</th>
-          <th>Funcão</th>
+          <th>Voo</th>
+          <th>Companhia</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        {avioes.map((v) => (
-          <tr key={v.modelo}>
-            <td>{v.modelo}</td>
-            <td>{v.funcao}</td>
+        {voos.map((v) => (
+          <tr key={v.numero}>
+            <td>{v.numero}</td>
+            <td>{v.companhia}</td>
+            <td>{v.status}</td>
           </tr>
         ))}
       </tbody>

@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 
 function Header() {
     return <header className="site-header">
-        <div className="logo"> Aviation Cat</div>
+        <div className="logo"> Voos App</div>
         <NavBar />
       </header>
   }

@@ -1,0 +1,35 @@
+.diferenciais {
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.diferenciais h2 {
+  margin-bottom: 24px;
+  color: var(--text-h);
+}
+
+.lista-diferenciais {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.diferencial-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.diferencial-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow);
+}
