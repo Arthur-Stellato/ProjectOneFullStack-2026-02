@@ -1,7 +1,13 @@
-// src/services/api.js
+// src/services/api.js  (compartilhado)
 // Camada central de chamadas à API AviationStack.
-// Todas as telas (voos, aeroportos, etc.) devem buscar dados por aqui,
-// em vez de fazer fetch() direto dentro dos componentes.
+// As telas NUNCA fazem fetch() direto: sempre importam uma função daqui.
+//
+// Cada função devolve o JSON inteiro da API: { pagination, data: [...] }.
+// A lista de itens fica em `resposta.data`.
+// Erros (rede ou status != 200) viram `throw new Error(...)`: use try/catch.
+//
+// Atenção: o plano gratuito tem limite de requisições. Não dispare a
+// busca a cada tecla digitada.
 
 const BASE_URL = 'https://api.aviationstack.com/v1';
 const ACCESS_KEY = import.meta.env.VITE_AVIATIONSTACK_KEY;
@@ -17,14 +23,14 @@ async function request(endpoint, params = {}) {
   return response.json();
 }
 
-// TODO (Pessoa 1): implementar a busca de voos.
-// Sugestão de assinatura: getFlights({ flight_iata, flight_status, limit })
+// Pessoa 1 é dona desta função; Pessoa 3 também a usa (detalhe do voo).
+// Parâmetros úteis: flight_iata (ex.: 'LA3456'), flight_status, limit.
 export async function getFlights(params = {}) {
   return request('flights', params);
 }
 
-// TODO (Pessoa 2): implementar a busca de aeroportos/companhias.
-// Sugestão de assinatura: getAirports({ search, limit }) ou getAirlines({ ... })
+// Pessoa 2 é dona desta função.
+// Parâmetros úteis: search, limit.
 export async function getAirports(params = {}) {
   return request('airports', params);
 }
