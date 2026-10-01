@@ -1,8 +1,13 @@
-// src/features/aeroportos/ListaAeroportos.jsx  (dono: Pessoa 2)
-// TODO (Pessoa 2): renderizar a prop `aeroportos` com .map() mostrando
-// nome, código IATA/ICAO e país.
 function ListaAeroportos({ aeroportos = [] }) {
-  return <ul className="lista-aeroportos">{aeroportos.map(() => null)}</ul>; // TODO: trocar por <li> reais
+  return (
+    <ul className="lista-aeroportos">
+      {aeroportos.map((a) => (
+        <li key={a.iata}>
+          {a.nome} ({a.iata}/{a.icao}) — {a.timezone}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default ListaAeroportos;

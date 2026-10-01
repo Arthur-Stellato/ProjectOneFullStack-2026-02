@@ -28,6 +28,8 @@ function Aeroportos() {
       .finally(() => setCarregando(false));
   }, []);
 
+  console.log(aeroportos[0])
+
   return (
     <section className="aeroportos">
       <h2>Aeroportos</h2>
