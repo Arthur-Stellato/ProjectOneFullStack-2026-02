@@ -17,7 +17,8 @@ async function request(endpoint, params = {}) {
   const response = await fetch(`${BASE_URL}/${endpoint}?${query}`);
 
   if (!response.ok) {
-    throw new Error(`Erro ao buscar ${endpoint}: ${response.status}`);
+    const corpo = await response.json().catch(() => null);
+    throw new Error(corpo?.error?.message ?? `Erro ao buscar ${endpoint}: ${response.status}`);
   }
 
   return response.json();
