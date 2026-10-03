@@ -58,6 +58,7 @@ function VooDetalhes() {
       <p>Companhia: {voo.airline?.name ?? 'Companhia desconhecida'}</p>
       <p>Status: {voo.flight_status ?? 'Não informado'}</p>
       <BlocoAeroporto titulo="Partida" dados={voo.departure} />
+      <BlocoAeroporto titulo="Chegada" dados={voo.arrival} />
     </>
   );
 
