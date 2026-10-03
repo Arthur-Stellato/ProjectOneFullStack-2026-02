@@ -39,7 +39,25 @@ function Home() {
   if (carregando) conteudo = <Loading />;
   else if (erro) conteudo = <ErrorMessage mensagem={erro} />;
   else if (voos.length === 0) conteudo = <EmptyState texto="Nenhum voo ativo no momento." />;
-  else conteudo = <p>Total de voos ativos: {total}</p>;
+  else conteudo = (
+    <>
+      <p>Total de voos ativos: {total}</p>
+      <ul className="lista-voos-ativos">
+        {voos.map((voo, indice) => {
+          const codigo = voo.flight?.iata;
+          const companhia = voo.airline?.name ?? 'Companhia desconhecida';
+          const origem = voo.departure?.airport ?? 'Origem desconhecida';
+          const destino = voo.arrival?.airport ?? 'Destino desconhecido';
+
+          return (
+            <li key={codigo ?? indice}>
+              {codigo ?? 'Sem código'} — {companhia}: {origem} → {destino}
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 
   return (
     <section className="home">
