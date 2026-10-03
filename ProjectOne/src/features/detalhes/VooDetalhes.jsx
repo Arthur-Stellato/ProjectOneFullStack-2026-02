@@ -15,6 +15,25 @@ import Loading from '../../components/ui/Loading';
 import ErrorMessage from '../../components/ui/ErrorMessage';
 import EmptyState from '../../components/ui/EmptyState';
 
+// Os horários vêm em formato ISO ("2026-09-24T14:00:00+00:00") e podem ser null
+function formatarHorario(iso) {
+  return iso ? new Date(iso).toLocaleString('pt-BR') : 'Não informado';
+}
+
+// Bloco reutilizado para partida e chegada (os dois têm a mesma estrutura)
+function BlocoAeroporto({ titulo, dados }) {
+  return (
+    <div className="bloco-aeroporto">
+      <h3>{titulo}</h3>
+      <p>Aeroporto: {dados?.airport ?? 'Não informado'}</p>
+      <p>Horário previsto: {formatarHorario(dados?.scheduled)}</p>
+      <p>Atraso: {dados?.delay ? `${dados.delay} min` : 'Sem atraso'}</p>
+      <p>Terminal: {dados?.terminal ?? '-'}</p>
+      <p>Portão: {dados?.gate ?? '-'}</p>
+    </div>
+  );
+}
+
 function VooDetalhes() {
   const { id } = useParams();
 
@@ -38,6 +57,7 @@ function VooDetalhes() {
     <>
       <p>Companhia: {voo.airline?.name ?? 'Companhia desconhecida'}</p>
       <p>Status: {voo.flight_status ?? 'Não informado'}</p>
+      <BlocoAeroporto titulo="Partida" dados={voo.departure} />
     </>
   );
 
