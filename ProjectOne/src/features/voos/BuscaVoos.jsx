@@ -14,7 +14,7 @@ import ListaVoos from './ListaVoos';
 import { estadoInicial, voosReducer } from './voosReducer';
 import { getFlights } from '../../services/api';
 
-import Loading from '../../components/Loading';
+import Loading from '../../components/ui/Loading';
 import ErrorMessage from '../../components/ui/ErrorMessage';
 import EmptyState from '../../components/ui/EmptyState';
 
