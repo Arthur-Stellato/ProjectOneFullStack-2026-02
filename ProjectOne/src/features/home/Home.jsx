@@ -51,7 +51,7 @@ function Home() {
 
           return (
             <li key={codigo ?? indice}>
-              {codigo ?? 'Sem código'} — {companhia}: {origem} → {destino}
+              {codigo ? <Link to={`/voo/${codigo}`}>{codigo}</Link> : 'Sem código'} — {companhia}: {origem} → {destino}
             </li>
           );
         })}
