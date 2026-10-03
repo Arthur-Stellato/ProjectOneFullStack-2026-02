@@ -16,8 +16,10 @@ import { getFlights } from '../../services/api';
 
 import Loading from '../../components/ui/Loading';
 import ErrorMessage from '../../components/ui/ErrorMessage';
+import EmptyState from '../../components/ui/EmptyState';
 
 function Home() {
+  const [voos, setVoos] = useState([]);
   const [total, setTotal] = useState(0);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
@@ -25,7 +27,10 @@ function Home() {
   // deps [] = chama a API uma única vez, quando a Home abre
   useEffect(() => {
     getFlights({ flight_status: 'active', limit: 5 })
-      .then((resposta) => setTotal(resposta.pagination.total))
+      .then((resposta) => {
+        setVoos(resposta.data);
+        setTotal(resposta.pagination.total);
+      })
       .catch((e) => setErro(e.message))
       .finally(() => setCarregando(false));
   }, []);
@@ -33,6 +38,7 @@ function Home() {
   let conteudo;
   if (carregando) conteudo = <Loading />;
   else if (erro) conteudo = <ErrorMessage mensagem={erro} />;
+  else if (voos.length === 0) conteudo = <EmptyState texto="Nenhum voo ativo no momento." />;
   else conteudo = <p>Total de voos ativos: {total}</p>;
 
   return (
