@@ -18,6 +18,7 @@ import ListaAeroportos from './ListaAeroportos';
 function Aeroportos() {
 
   const [aeroportos, setAeroportos] = useState([]);
+  const [filtro, setFiltro] = useState('');
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
@@ -33,7 +34,8 @@ function Aeroportos() {
   return (
     <section className="aeroportos">
       <h2>Aeroportos</h2>
-      <FiltroAeroportos />
+      <FiltroAeroportos valor={filtro} onChange={setFiltro} />
+      <p>Digitou: {filtro}</p>
       <ListaAeroportos aeroportos={aeroportos} />
       <p>Total: {aeroportos.length}</p>
     </section>
