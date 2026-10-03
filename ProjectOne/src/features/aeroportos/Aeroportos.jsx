@@ -30,14 +30,19 @@ function Aeroportos() {
   }, []);
 
   console.log(aeroportos[0])
+  
+  const termo = filtro.trim().toLowerCase();
+  const aeroportosFiltrados = aeroportos.filter((a) =>
+    a.iata.toLowerCase().includes(termo) || a.nome?.toLowerCase().includes(termo)
+  );
 
   return (
     <section className="aeroportos">
       <h2>Aeroportos</h2>
       <FiltroAeroportos valor={filtro} onChange={setFiltro} />
       <p>Digitou: {filtro}</p>
-      <ListaAeroportos aeroportos={aeroportos} />
-      <p>Total: {aeroportos.length}</p>
+      <ListaAeroportos aeroportos={aeroportosFiltrados} />
+      <p>Total: {aeroportosFiltrados.length}</p>
     </section>
   );
 }
