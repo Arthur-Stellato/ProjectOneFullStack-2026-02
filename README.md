@@ -34,17 +34,17 @@ O arquivo `.env` não vai para o repositório.
 | `/` | Início: resumo dos voos ativos e atalhos |
 | `/voos` | Busca de voos por código (ex.: LA3456) |
 | `/voo/:id` | Detalhe de um voo: horários, atraso, terminal e portão |
-| `/aeroportos` | Lista de aeroportos com filtro por nome ou código IATA |
+| `/aeroportos` | Lista paginada de aeroportos, com filtro por nome, IATA, ICAO ou fuso horário |
 
 ## Limitações da API
 
-O plano gratuito da AviationStack permite 100 requisições por mês e não oferece o endpoint `/airports`. Por isso a lista de aeroportos é montada a partir dos voos retornados por `/flights`, sem repetidos, e o filtro é por nome ou IATA (esse endpoint não informa o país).
+O plano gratuito da AviationStack permite 100 requisições por mês e não oferece o endpoint `/airports`. Por isso a lista de aeroportos é montada a partir dos voos das companhias Azul, GOL e LATAM retornados por `/flights` (uma chamada por companhia), sem repetidos. Esse endpoint não informa o país, então o filtro busca por nome, IATA, ICAO ou fuso horário (ex.: `America/Sao_Paulo`), e a lista é paginada no navegador, 10 aeroportos por página.
 
 ## Equipe
 
 | Integrante | GitHub | Responsabilidade |
 | --- | --- | --- |
-| Yakino | [@Yakino41](https://github.com/Yakino41) | Tela de Aeroportos (rota `/aeroportos`, pasta `src/features/aeroportos/`): monta a lista de aeroportos a partir de `/flights`, remove os repetidos, filtra por nome ou IATA e trata os estados de carregamento, erro e lista vazia. |
+| Arthur | [@Yakino41](https://github.com/Yakino41) | Tela de Aeroportos (rota `/aeroportos`, pasta `src/features/aeroportos/`): monta a lista de aeroportos a partir de `/flights`, remove os repetidos, filtra por nome ou IATA e trata os estados de carregamento, erro e lista vazia. |
 | [Nome] | [@usuario](https://github.com/usuario) | Busca de voos (rota `/voos`, pasta `src/features/voos/`): formulário de busca por código do voo, `useReducer` para controlar o estado da busca e lista de resultados com link para o detalhe. |
 | João Felipe | [@jooaaao35](https://github.com/jooaaao35) | Início, detalhe do voo e layout (rotas `/` e `/voo/:id`, pastas `src/features/home/`, `src/features/detalhes/` e `src/components/layout/`): resumo de voos ativos, tela de detalhe, cabeçalho, menu e rodapé. |
 
