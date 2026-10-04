@@ -45,7 +45,7 @@ O plano gratuito da AviationStack permite 100 requisições por mês e não ofer
 | Integrante | GitHub | Responsabilidade |
 | --- | --- | --- |
 | Arthur | [@Yakino41](https://github.com/Yakino41) | Tela de Aeroportos (rota `/aeroportos`, pasta `src/features/aeroportos/`): monta a lista de aeroportos a partir de `/flights`, remove os repetidos, filtra por nome ou IATA e trata os estados de carregamento, erro e lista vazia. |
-| [Nome] | [@usuario](https://github.com/usuario) | Busca de voos (rota `/voos`, pasta `src/features/voos/`): formulário de busca por código do voo, `useReducer` para controlar o estado da busca e lista de resultados com link para o detalhe. |
+| Conrado | [@conrah](https://github.com/conrah) | Busca de voos (rota `/voos`, pasta `src/features/voos/`): formulário de busca por código do voo, `useReducer` para controlar o estado da busca e lista de resultados com link para o detalhe. |
 | João Felipe | [@jooaaao35](https://github.com/jooaaao35) | Início, detalhe do voo e layout (rotas `/` e `/voo/:id`, pastas `src/features/home/`, `src/features/detalhes/` e `src/components/layout/`): resumo de voos ativos, tela de detalhe, cabeçalho, menu e rodapé. |
 
 ## Uso de IA e ferramentas de apoio
@@ -54,8 +54,9 @@ Cada integrante registra aqui o que usou e para quê.
 
 | Ferramenta | Integrante | Para quê |
 | --- | --- | --- |
-| Claude (Anthropic) | Yakino | Esqueleto inicial do projeto (estrutura de pastas, rotas e componentes compartilhados de carregamento, erro e lista vazia) e guia de divisão do trabalho em três partes. |
-| Claude (Anthropic) | Yakino | Orientação passo a passo na tela de Aeroportos: explicação de conceitos (props, estado, `useEffect`, input controlado), sugestões de código e ajuda para corrigir erros. |
-| Claude (Anthropic) | Yakino | Revisão do código da equipe (lista de bugs e melhorias) e rascunho deste README. |
+| Claude (Anthropic) | Arthur | Esqueleto inicial do projeto (estrutura de pastas, rotas e componentes compartilhados de carregamento, erro e lista vazia) e guia de divisão do trabalho em três partes. |
+| Claude (Anthropic) | Arthur | Orientação passo a passo na tela de Aeroportos: explicação de conceitos (props, estado, `useEffect`, input controlado), sugestões de código e ajuda para corrigir erros. |
+| Claude (Anthropic) | Arthur | Revisão do código da equipe (lista de bugs e melhorias) e rascunho deste README. |
 | Claude (Anthropic) | João Felipe | Desenvolvimento do código da minha parte (início, detalhe do voo, layout e rotas), com orientação, revisão e correção de erros. |
+| Claude (Anthropic) / ChatGPT | Conrado | Auxílio na correção dos componentes da funcionalidade de busca de voos, incluindo BuscaVoos.jsx e ListaVoos.jsx. Também foi utilizado para esclarecer dúvidas sobre React, useReducer, integração com a API e git. |
 | [Ferramenta] | [Nome] | [Para quê] |
