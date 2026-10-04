@@ -138,3 +138,11 @@ main {
   font-size: 0.9rem;
   background-color: var(--code-bg);
 }
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}

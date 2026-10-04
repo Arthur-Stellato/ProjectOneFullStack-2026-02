@@ -3,7 +3,7 @@ function FiltroAeroportos({ valor, onChange }) {
     <div className="filtro-aeroportos">
       <input
         type="text"
-        placeholder="Buscar por nome ou IATA"
+        placeholder="Buscar por nome, IATA, ICAO ou região (ex.: America)"
         value={valor}
         onChange={(e) => onChange(e.target.value)}
       />
