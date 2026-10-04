@@ -59,4 +59,3 @@ Cada integrante registra aqui o que usou e para quê.
 | Claude (Anthropic) | Arthur | Revisão do código da equipe (lista de bugs e melhorias) e rascunho deste README. |
 | Claude (Anthropic) | João Felipe | Desenvolvimento do código da minha parte (início, detalhe do voo, layout e rotas), com orientação, revisão e correção de erros. |
 | Claude (Anthropic) / ChatGPT | Conrado | Auxílio na correção dos componentes da funcionalidade de busca de voos, incluindo BuscaVoos.jsx e ListaVoos.jsx. Também foi utilizado para esclarecer dúvidas sobre React, useReducer, integração com a API e git. |
-| [Ferramenta] | [Nome] | [Para quê] |
