@@ -8,7 +8,7 @@
 //  4. usar <Loading />, <ErrorMessage /> e <EmptyState /> de components/ui
 //  5. botão/link "Voltar" para "/voos"
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getFlights } from '../../services/api';
 
 import Loading from '../../components/ui/Loading';
@@ -66,6 +66,7 @@ function VooDetalhes() {
     <section className="voo-detalhes">
       <h2>Detalhes do voo {id}</h2>
       {conteudo}
+      <p><Link to="/voos">Voltar</Link></p>
     </section>
   );
 }
