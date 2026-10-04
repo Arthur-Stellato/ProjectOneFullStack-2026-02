@@ -124,3 +124,17 @@ main {
 .ui-error {
   color: #dc2626;
 }
+
+
+/* acrescentado (item 6 do roteiro): rodapé sempre no fim da tela */
+.App {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.site-footer {
+  padding: 1.25rem 1rem;
+  font-size: 0.9rem;
+  background-color: var(--code-bg);
+}
