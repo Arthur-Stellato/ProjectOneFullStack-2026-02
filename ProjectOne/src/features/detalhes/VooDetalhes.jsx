@@ -16,8 +16,14 @@ import ErrorMessage from '../../components/ui/ErrorMessage';
 import EmptyState from '../../components/ui/EmptyState';
 
 // Os horários vêm em formato ISO ("2026-09-24T14:00:00+00:00") e podem ser null
-function formatarHorario(iso) {
-  return iso ? new Date(iso).toLocaleString('pt-BR') : 'Não informado';
+// Mostra no fuso do aeroporto (timeZone vem da API); se o fuso for inválido, usa o do navegador
+function formatarHorario(iso, timeZone) {
+  if (!iso) return 'Não informado';
+  try {
+    return new Date(iso).toLocaleString('pt-BR', timeZone ? { timeZone } : undefined);
+  } catch {
+    return new Date(iso).toLocaleString('pt-BR');
+  }
 }
 
 // Bloco reutilizado para partida e chegada (os dois têm a mesma estrutura)
@@ -26,7 +32,7 @@ function BlocoAeroporto({ titulo, dados }) {
     <div className="bloco-aeroporto">
       <h3>{titulo}</h3>
       <p>Aeroporto: {dados?.airport ?? 'Não informado'}</p>
-      <p>Horário previsto: {formatarHorario(dados?.scheduled)}</p>
+      <p>Horário previsto: {formatarHorario(dados?.scheduled, dados?.timezone)}</p>
       <p>Atraso: {dados?.delay ? `${dados.delay} min` : 'Sem atraso'}</p>
       <p>Terminal: {dados?.terminal ?? '-'}</p>
       <p>Portão: {dados?.gate ?? '-'}</p>
@@ -44,7 +50,12 @@ function VooDetalhes() {
   // deps [id] = busca o voo da URL; busca de novo se o id mudar
   useEffect(() => {
     getFlights({ flight_iata: id })
-      .then((resposta) => setVoo(resposta.data[0]))
+      .then((resposta) => {
+        // se vierem vários registros do mesmo código, prefere o voo de hoje
+        const hoje = new Date().toISOString().slice(0, 10);
+        const lista = resposta.data ?? [];
+        setVoo(lista.find((v) => v.flight_date === hoje) ?? lista[0]);
+      })
       .catch((e) => setErro(e.message))
       .finally(() => setCarregando(false));
   }, [id]);
