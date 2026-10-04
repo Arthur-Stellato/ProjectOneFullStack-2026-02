@@ -1,6 +1,4 @@
-// src/App.jsx  (dono: Pessoa 3)
-// Aqui só ficam o layout fixo e o mapa de rotas.
-// Nenhuma lógica de tela deve morar neste arquivo.
+
 import { Routes, Route, Link } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';

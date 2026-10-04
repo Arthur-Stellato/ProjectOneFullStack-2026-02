@@ -1,4 +1,4 @@
-// src/components/layout/Header.jsx  (dono: Pessoa 3)
+
 import './Header.css';
 import NavBar from './NavBar';
 

@@ -1,12 +1,4 @@
-// src/features/detalhes/VooDetalhes.jsx  (dono: Pessoa 3)
-// Tela de detalhe (rota "/voo/:id"). O :id é o código IATA do voo (ex.: LA3456).
-//
-// TODO (Pessoa 3):
-//  1. useParams() para pegar o id
-//  2. getFlights({ flight_iata: id }) de services/api.js (função criada pela Pessoa 1)
-//  3. mostrar horários, atraso, portão, terminal, status
-//  4. usar <Loading />, <ErrorMessage /> e <EmptyState /> de components/ui
-//  5. botão/link "Voltar" para "/voos"
+
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getFlights } from '../../services/api';

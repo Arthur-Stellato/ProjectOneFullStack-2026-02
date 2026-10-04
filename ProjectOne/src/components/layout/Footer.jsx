@@ -1,4 +1,4 @@
-// src/components/layout/Footer.jsx  (dono: Pessoa 3)
+
 function Footer() {
   return (
     <footer className="site-footer">
