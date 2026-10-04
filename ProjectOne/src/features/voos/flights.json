@@ -1,0 +1,55 @@
+[
+{
+    "flight_date": "2026-10-02",
+    "flight_status": "scheduled",
+    "departure": {
+        "airport": "Auckland International",
+        "timezone": "Pacific/Auckland",
+        "iata": "AKL",
+        "icao": "NZAA",
+        "terminal": "I",
+        "gate": "10",
+        "delay": 0,
+        "scheduled": "2026-10-02T01:15:00+00:00",
+        "estimated": "2026-10-02T01:15:00+00:00",
+        "actual": null,
+        "estimated_runway": "2026-10-02T01:15:00+00:00",
+        "actual_runway": null
+    },
+    "arrival": {
+        "airport": "Kuala Lumpur International Airport (klia)",
+        "timezone": "Asia/Kuala_Lumpur",
+        "iata": "KUL",
+        "icao": "WMKK",
+        "terminal": "1",
+        "gate": null,
+        "baggage": null,
+        "scheduled": "2026-10-02T07:55:00+00:00",
+        "delay": null,
+        "estimated": null,
+        "actual": null,
+        "estimated_runway": null,
+        "actual_runway": null
+    },
+    "airline": {
+        "name": "Oman Air",
+        "iata": "WY",
+        "icao": "OMA"
+    },
+    "flight": {
+        "number": "5585",
+        "iata": "WY5585",
+        "icao": "OMA5585",
+        "codeshared": {
+            "airline_name": "malaysia airlines",
+            "airline_iata": "mh",
+            "airline_icao": "mas",
+            "flight_number": "132",
+            "flight_iata": "mh132",
+            "flight_icao": "mas132"
+        }
+    },
+    "aircraft": null,
+    "live": null
+}
+]

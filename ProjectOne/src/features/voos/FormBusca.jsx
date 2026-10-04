@@ -1,17 +1,11 @@
-// src/features/voos/FormBusca.jsx  (dono: Pessoa 1)
-// TODO (Pessoa 1): input (ex.: código do voo "LA3456") + botão.
-// Receber uma prop onBuscar(termo) e chamá-la no submit do formulário.
-
-function FormBusca( { onBuscar }) {
+function FormBusca({ onBuscar, desabilitado = false }) {
 
   function handleSubmit(event) {
-    // Impedir que o formulario recarregue a pagina.
+
     event.preventDefault();
 
-    // Pega o valor digiadoo no input
     const termo = event.target.termo.value;
 
-    //Chama a funçao recebida
     onBuscar(termo);
   }
   return (
@@ -27,7 +21,7 @@ function FormBusca( { onBuscar }) {
         placeholder="Ex.: LA3456"
       />
 
-      <button type="submit">
+      <button type="submit" disabled={desabilitado}>
         Buscar
       </button>
 
