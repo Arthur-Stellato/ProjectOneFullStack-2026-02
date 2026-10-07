@@ -24,14 +24,10 @@ async function request(endpoint, params = {}) {
   return response.json();
 }
 
-// Pessoa 1 é dona desta função; Pessoa 3 também a usa (detalhe do voo).
-// Parâmetros úteis: flight_iata (ex.: 'LA3456'), flight_status, limit.
 export async function getFlights(params = {}) {
   return request('flights', params);
 }
 
-// Pessoa 2 é dona desta função.
-// Parâmetros úteis: search, limit.
 export async function getAirports(params = {}) {
   return request('airports', params);
 }

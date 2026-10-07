@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getFlights } from '../../services/api';
@@ -7,15 +6,18 @@ import Loading from '../../components/ui/Loading';
 import ErrorMessage from '../../components/ui/ErrorMessage';
 import EmptyState from '../../components/ui/EmptyState';
 
+const POR_PAGINA = 5;
+
 function Home() {
   const [voos, setVoos] = useState([]);
   const [total, setTotal] = useState(0);
+  const [pagina, setPagina] = useState(1);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
   // deps [] = chama a API uma única vez, quando a Home abre
   useEffect(() => {
-    getFlights({ flight_status: 'active', limit: 5 })
+    getFlights({ flight_status: 'active', limit: 50 })
       .then((resposta) => {
         setVoos(resposta.data);
         setTotal(resposta.pagination.total);
@@ -23,6 +25,10 @@ function Home() {
       .catch((e) => setErro(e.message))
       .finally(() => setCarregando(false));
   }, []);
+
+  const totalPaginas = Math.ceil(voos.length / POR_PAGINA);
+  const inicio = (pagina - 1) * POR_PAGINA;
+  const voosDaPagina = voos.slice(inicio, inicio + POR_PAGINA);
 
   let conteudo;
   if (carregando) conteudo = <Loading />;
@@ -32,7 +38,7 @@ function Home() {
     <>
       <p>Total de voos ativos: {total}</p>
       <ul className="lista-voos-ativos">
-        {voos.map((voo, indice) => {
+        {voosDaPagina.map((voo, indice) => {
           const codigo = voo.flight?.iata;
           const companhia = voo.airline?.name ?? 'Companhia desconhecida';
           const origem = voo.departure?.airport ?? 'Origem desconhecida';
@@ -45,6 +51,17 @@ function Home() {
           );
         })}
       </ul>
+      {totalPaginas > 1 && (
+        <div className="paginacao">
+          <button type="button" onClick={() => setPagina(pagina - 1)} disabled={pagina === 1}>
+            Anterior
+          </button>
+          <span>Página {pagina} de {totalPaginas}</span>
+          <button type="button" onClick={() => setPagina(pagina + 1)} disabled={pagina === totalPaginas}>
+            Próxima
+          </button>
+        </div>
+      )}
     </>
   );
 
