@@ -44,9 +44,9 @@ O plano gratuito da AviationStack permite 100 requisições por mês e não ofer
 
 | Integrante | GitHub | Responsabilidade |
 | --- | --- | --- |
-| Arthur | [@Yakino41](https://github.com/Yakino41) | Tela de Aeroportos (rota `/aeroportos`, pasta `src/features/aeroportos/`): monta a lista de aeroportos a partir de `/flights`, remove os repetidos, filtra por nome ou IATA e trata os estados de carregamento, erro e lista vazia. |
-| Conrado | [@conrah](https://github.com/conrah) | Busca de voos (rota `/voos`, pasta `src/features/voos/`): formulário de busca por código do voo, `useReducer` para controlar o estado da busca e lista de resultados com link para o detalhe. |
-| João Felipe | [@jooaaao35](https://github.com/jooaaao35) | Início, detalhe do voo e layout (rotas `/` e `/voo/:id`, pastas `src/features/home/`, `src/features/detalhes/` e `src/components/layout/`): resumo de voos ativos, tela de detalhe, cabeçalho, menu e rodapé. |
+| Arthur | [Arthur](https://github.com/Yakino41) | Tela de Aeroportos (rota `/aeroportos`, pasta `src/features/aeroportos/`): monta a lista de aeroportos a partir de `/flights`, remove os repetidos, filtra por nome ou IATA e trata os estados de carregamento, erro e lista vazia. |
+| Conrado | [Conrado](https://github.com/conrah) | Busca de voos (rota `/voos`, pasta `src/features/voos/`): formulário de busca por código do voo, `useReducer` para controlar o estado da busca e lista de resultados com link para o detalhe. |
+| João Felipe | [João](https://github.com/jooaaao35) | Início, detalhe do voo e layout (rotas `/` e `/voo/:id`, pastas `src/features/home/`, `src/features/detalhes/` e `src/components/layout/`): resumo de voos ativos, tela de detalhe, cabeçalho, menu e rodapé. |
 
 ## Uso de IA e ferramentas de apoio
 
